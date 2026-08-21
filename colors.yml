@@ -24,8 +24,10 @@ compute-prevent-destroy: true
 # --- Rybbit analytics stack -------------------------------------------------
 
 # Rybbit has no first-run bootstrap: with signup disabled nobody can create the
-# first account. Leave this false until you have registered, then set it true.
-rybbit-disable-signup: false
+# first account. This started false so the owner account could be registered,
+# and closed once it was. A rebuild from scratch needs it back at false for one
+# converge, long enough to register, then true again.
+rybbit-disable-signup: true
 
 # Acceptance sends its synthetic pageview here rather than to a real site, so
 # converges do not write test rows into your analytics. Created on demand.
