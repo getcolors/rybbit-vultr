@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "package-rybbit-green": {
+      "source": "getcolors/rybbit",
+      "sourceType": "github",
+      "skillPath": "skills/package-rybbit-green/SKILL.md",
+      "computedHash": "2941d87d294c62dd71e0139578bc0738e3872ecd707ce600d49b9b992a5f6e10"
+    }
+  }
+}
