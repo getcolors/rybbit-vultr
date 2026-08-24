@@ -20,11 +20,15 @@ together when updating them.
 ## Usage
 
 ```sh
-eval "$(.ssh/ephemeral-ssh.sh start)"   # deployment-local disposable SSH agent
 ./green build
 ./green create --dry-run
 ./green create
 ```
+
+The machine SSH keypair is `~/.ssh/rybbit-vultr`(`.pub`), named by profile per
+`workspace/standards/ssh-keypair.md`. The `rybbit-vultr` entry in
+`~/.ssh/config` matches both the alias and the instance address, so converges
+and ad-hoc `ssh` authenticate with it directly; no agent is required.
 
 ## Operations & Verification
 

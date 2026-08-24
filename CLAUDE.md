@@ -10,10 +10,12 @@ in `../rybbit`.
 Tracked source is `colors.yml`, toolchain and documentation, the installed
 Package Skill, and a root launcher copied from its payload.
 `.colors/` is generated private state and `.envrc.private` contains credentials;
-never read, edit or commit either. `.ssh/` holds this deployment's disposable
-SSH key and agent (`.ssh/ephemeral-ssh.sh start|status|stop`); it is local and
-untracked, and converges expect its agent via `eval "$(.ssh/ephemeral-ssh.sh
-start)"`.
+never read, edit or commit either. The machine SSH keypair is
+`~/.ssh/rybbit-vultr`(`.pub`), named by profile per
+`workspace/standards/ssh-keypair.md`; the matching `~/.ssh/config` entry covers
+the alias and the instance address, so converges authenticate without an agent.
+Losing that private key means losing SSH access to the live instance — never
+regenerate it while the instance exists.
 
 ## Commands
 
