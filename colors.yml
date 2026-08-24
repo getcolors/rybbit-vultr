@@ -33,7 +33,7 @@ rybbit-disable-signup: true
 # converges do not write test rows into your analytics. Created on demand.
 rybbit-acceptance-site-domain: colors-acceptance.invalid
 
-rybbit-host: rybbit.bigconfig.website
+rybbit-host: rybbit.getcolors.ai
 
 # Serve through the Cloudflare proxy so the instance's address is not published
 # in DNS. The Caddyfile already trusts Cloudflare's ranges, so client addresses
@@ -82,7 +82,7 @@ vultr-os-id: 2284
 #
 # The rybbit-vultr-disposable key: generated into .ssh/ by ephemeral-ssh.sh,
 # held by the deployment-local agent, registered in the Vultr account via API.
-vultr-ssh-keys: "86de368a-6cdf-425e-ba9f-eb7722dd8f10"
+vultr-ssh-keys: "bcb406a5-0ed1-4dd2-8532-2717ded623bd"
 
 # SSH is key-only and used for convergence and recovery. HTTP(S) is public.
 # Vultr firewalls are default-deny inbound and model no outbound at all.

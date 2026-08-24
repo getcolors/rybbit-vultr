@@ -4,7 +4,7 @@ Desired state for a production-oriented single-node Rybbit web & product analyti
 
 ## Architecture
 
-- **Domain**: `https://rybbit.bigconfig.website` (Cloudflare-proxied)
+- **Domain**: `https://rybbit.getcolors.ai` (Cloudflare-proxied)
 - **Location**: `ams` (Amsterdam)
 - **Instance**: `vc2-2c-4gb` on Ubuntu 24.04
 - **Databases**:
@@ -30,12 +30,12 @@ eval "$(.ssh/ephemeral-ssh.sh start)"   # deployment-local disposable SSH agent
 
 ```sh
 # Health check
-curl -fsS https://rybbit.bigconfig.website/api/health
+curl -fsS https://rybbit.getcolors.ai/api/health
 
 # Send synthetic test event
 curl -fsS -X POST -H 'content-type: application/json' \
   --data '{"name":"pageview","site_id":"benchmark","data":{"path":"/test"}}' \
-  https://rybbit.bigconfig.website/api/track
+  https://rybbit.getcolors.ai/api/track
 
 # Run backup service on host (use the instance address: the hostname is proxied)
 ssh root@SERVER 'systemctl start rybbit-backup.service'

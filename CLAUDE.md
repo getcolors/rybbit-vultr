@@ -4,7 +4,7 @@
 
 Desired state for `rybbit-vultr`: Rybbit privacy-friendly web & product
 analytics stack on one Vultr instance in Amsterdam, published at
-`https://rybbit.bigconfig.website` through Cloudflare and Caddy. Behavior lives
+`https://rybbit.getcolors.ai` through Cloudflare and Caddy. Behavior lives
 in `../rybbit`.
 
 Tracked source is `colors.yml`, toolchain and documentation, the installed
