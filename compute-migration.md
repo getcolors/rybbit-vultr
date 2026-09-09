@@ -1,6 +1,6 @@
 # Shared compute rollout
 
-Installed package: `getcolors/rybbit` at published revision `cd61ec1dfd9c1cfc887c038e3dba8e4c08058923`.
+Installed package: `getcolors/rybbit` at published revision `91524a5d2b00b99562ae2bb45e31a869848dab84`.
 The installed skill directories and root launchers were copied from a verified
 Skills CLI installation of that revision. The existing skills-lock.json entries were updated from that installation.
 
