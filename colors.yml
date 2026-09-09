@@ -97,3 +97,6 @@ vultr-http-sources:
 
 r2-bucket: tofu-state-319271fed8bc6d2d9059362be1165f37-eu
 r2-endpoint: https://319271fed8bc6d2d9059362be1165f37.eu.r2.cloudflarestorage.com
+
+# Existing external identity documented by this deployment; do not regenerate it.
+ssh-private-key-path: ~/.ssh/rybbit-vultr
