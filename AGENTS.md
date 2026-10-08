@@ -1,5 +1,15 @@
 # CLAUDE.md
 
+## Retained rollback instance — production cutover 2026-10-08
+
+Do not run `create` or `delete`: this deployment's DNS state still owns the
+production Cloudflare record, which was switched in place to Hetzner outside
+OpenTofu. A converge or destroy could undo or delete production routing.
+Keep this instance, databases, SSH identity and state for rollback until an
+explicit retirement decision. Caddy forwards late production traffic to
+Hetzner; the original Caddyfile is retained on the host for rollback.
+Complete the DNS state ownership handoff before resuming ordinary automation.
+
 ## Repository
 
 Desired state for `rybbit-vultr`: Rybbit privacy-friendly web & product
@@ -73,4 +83,3 @@ alias below the managed block (the managed block wins on HostName and User
 only), or move the deployment to keygen mode, which is a rebuild because
 `vultr-ssh-keys` is ForceNew. Back the line-1 stanza up verbatim before
 either. Never delete or regenerate `~/.ssh/rybbit-vultr`.
-

@@ -2,6 +2,26 @@
 
 Desired state for a production-oriented single-node Rybbit web & product analytics deployment on Vultr.
 
+As of 8 October 2026, this is the retained rollback instance. Production DNS
+points to Hetzner (`2.31.12.220`), and this host's Caddy forwards late requests
+there over verified HTTPS. The original application, databases and SSH identity
+remain intact at `78.141.212.24`.
+
+**Do not run `create` or `delete`.** This deployment's OpenTofu DNS state still
+owns the production record; it was updated in place outside OpenTofu. Complete
+the DNS state ownership handoff before resuming ordinary automation. See
+`../rybbit/README.md` and the
+[live deployment record](https://wiki.pocketcontext.com/#/page/deployment-profile-rybbit-hetzner).
+
+Rollback requires restoring `/opt/rybbit/Caddyfile` **in place**, preserving its
+inode, from the host's protected `/var/backups/rybbit-cutover/Caddyfile.before`,
+validating/reloading Caddy, then
+pointing the existing production A record back to `78.141.212.24` with proxying
+preserved. DNS rollback alone would otherwise keep forwarding to Hetzner.
+Writes accepted only by Hetzner will not appear here. The source R2 backup job's
+previous HTTP 401 remains unresolved; retain the protected local migration
+archive. Do not retire this instance without a separate decision.
+
 ## Architecture
 
 - **Domain**: `https://rybbit.getcolors.ai` (Cloudflare-proxied)
