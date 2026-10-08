@@ -7,9 +7,12 @@ points to Hetzner (`2.31.12.220`), and this host's Caddy forwards late requests
 there over verified HTTPS. The original application, databases and SSH identity
 remain intact at `78.141.212.24`.
 
-**Do not run `create` or `delete`.** This deployment's OpenTofu DNS state still
-owns the production record; it was updated in place outside OpenTofu. Complete
-the DNS state ownership handoff before resuming ordinary automation. See
+**Do not run `create` or `delete`.** The production DNS binding was removed from
+this deployment's state and imported into Hetzner's state on 8 October 2026;
+the live record was preserved and the target DNS plan showed no changes.
+This source DNS state has no managed records, but its retained desired
+configuration still names production and would attempt a competing create.
+Keep this profile frozen pending an explicit retirement decision. See
 `../rybbit/README.md` and the
 [live deployment record](https://wiki.pocketcontext.com/#/page/deployment-profile-rybbit-hetzner).
 

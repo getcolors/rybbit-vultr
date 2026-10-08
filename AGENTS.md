@@ -2,13 +2,15 @@
 
 ## Retained rollback instance — production cutover 2026-10-08
 
-Do not run `create` or `delete`: this deployment's DNS state still owns the
-production Cloudflare record, which was switched in place to Hetzner outside
-OpenTofu. A converge or destroy could undo or delete production routing.
+Do not run `create` or `delete`: this retained desired configuration still names
+production. Its production DNS binding was removed during the verified handoff
+to Hetzner; its DNS state now has no managed records. A fresh source converge
+would attempt to create a competing production record.
 Keep this instance, databases, SSH identity and state for rollback until an
 explicit retirement decision. Caddy forwards late production traffic to
 Hetzner; the original Caddyfile is retained on the host for rollback.
-Complete the DNS state ownership handoff before resuming ordinary automation.
+DNS ownership has moved to Hetzner. This source profile remains frozen pending
+an explicit retirement decision; do not resume its ordinary automation.
 
 ## Repository
 
