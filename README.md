@@ -16,7 +16,9 @@ Keep this profile frozen pending an explicit retirement decision. See
 `../rybbit/README.md` and the
 [live deployment record](https://wiki.pocketcontext.com/#/page/deployment-profile-rybbit-hetzner).
 
-Rollback requires restoring `/opt/rybbit/Caddyfile` **in place**, preserving its
+Rollback requires suspending Hetzner convergence first, because its desired DNS
+state would otherwise undo a manual rollback. Then restore `/opt/rybbit/Caddyfile`
+**in place**, preserving its
 inode, from the host's protected `/var/backups/rybbit-cutover/Caddyfile.before`,
 validating/reloading Caddy, then
 pointing the existing production A record back to `78.141.212.24` with proxying
